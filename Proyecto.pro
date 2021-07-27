@@ -9,16 +9,33 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    caja.cpp \
+    compras.cpp \
+    inventario.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    producto.cpp \
+    ventas.cpp
 
 HEADERS += \
-    mainwindow.h
+    caja.h \
+    compras.h \
+    inventario.h \
+    mainwindow.h \
+    producto.h \
+    ventas.h
 
 FORMS += \
-    mainwindow.ui
+    caja.ui \
+    compras.ui \
+    inventario.ui \
+    mainwindow.ui \
+    producto.ui \
+    ventas.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
