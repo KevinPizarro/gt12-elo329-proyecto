@@ -6,16 +6,94 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>718</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Proyecto</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>E:/Descargas/eloico.jpg</normaloff>E:/Descargas/eloico.jpg</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>25</width>
+    <height>25</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QMdiArea" name="mdiArea">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>771</width>
+      <height>551</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>718</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuVentas">
+    <property name="title">
+     <string>Ventas</string>
+    </property>
+    <addaction name="actionVentas"/>
+    <addaction name="actionCja"/>
+   </widget>
+   <widget class="QMenu" name="menuCompras">
+    <property name="title">
+     <string>Compras</string>
+    </property>
+    <addaction name="actionCompras"/>
+   </widget>
+   <widget class="QMenu" name="menuProductos">
+    <property name="title">
+     <string>Productos</string>
+    </property>
+    <addaction name="actionProductos"/>
+    <addaction name="actionInventario"/>
+   </widget>
+   <addaction name="menuVentas"/>
+   <addaction name="menuCompras"/>
+   <addaction name="menuProductos"/>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionVentas">
+   <property name="text">
+    <string>Ventas</string>
+   </property>
+  </action>
+  <action name="actionCja">
+   <property name="text">
+    <string>Caja</string>
+   </property>
+  </action>
+  <action name="actionCompras">
+   <property name="text">
+    <string>Compras</string>
+   </property>
+  </action>
+  <action name="actionProductos">
+   <property name="text">
+    <string>Producto</string>
+   </property>
+  </action>
+  <action name="actionInventario">
+   <property name="text">
+    <string>Inventario</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
