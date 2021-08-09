@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Proyecto</string>
+   <string>SiCoVen</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>E:/Descargas/eloico.jpg</normaloff>E:/Descargas/eloico.jpg</iconset>
+    <normaloff>../eloico.jpg</normaloff>../eloico.jpg</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -29,9 +29,24 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>771</width>
-      <height>551</height>
+      <width>1200</width>
+      <height>700</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1200</width>
+      <height>700</height>
+     </size>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
    </widget>
   </widget>
