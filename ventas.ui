@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>827</width>
-    <height>560</height>
+    <width>1196</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -95,22 +95,12 @@
       </item>
       <item>
        <property name="text">
-        <string>Kevins</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
         <string>Débito</string>
        </property>
       </item>
       <item>
        <property name="text">
         <string>Crédito</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Criptomonedas</string>
        </property>
       </item>
      </widget>
@@ -297,7 +287,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>E:/Descargas/Ventas.png</pixmap>
+    <pixmap>../Ventas.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -320,7 +310,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>E:/Descargas/Lupa.png</normaloff>E:/Descargas/Lupa.png</iconset>
+     <normaloff>../Lupa.png</normaloff>../Lupa.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -356,7 +346,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>E:/Descargas/Guardar.png</normaloff>E:/Descargas/Guardar.png</iconset>
+     <normaloff>../Guardar.png</normaloff>../Guardar.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -365,7 +355,73 @@
     </size>
    </property>
   </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>550</y>
+     <width>161</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Total Neto</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="Total">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>IVA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Total C/IVA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="Iva">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="TotalCI">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>Revisar</tabstop>
+  <tabstop>Guardar</tabstop>
+  <tabstop>Total</tabstop>
+  <tabstop>Iva</tabstop>
+  <tabstop>TotalCI</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
