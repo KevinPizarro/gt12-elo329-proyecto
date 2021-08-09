@@ -22,11 +22,12 @@ void Inventario::closeEvent (QCloseEvent *event){
 }
 
 void Inventario::setInv(){
+    //Realizamos la query para obtener los datos
     QSqlQueryModel *model=new QSqlQueryModel();
     model->setQuery("select * from Producto");
     QSqlQuery query;
     QSqlRecord row;
-    for(int i=0; i<model->rowCount(); i++){
+    for(int i=0; i<model->rowCount(); i++){ //Colocamos los datos en la tabla
         row=model->record(i);
         for(int j=0;j<3;j++){
             ui->tableWidget->setItem(i,j,new QTableWidgetItem(row.value(j).toString()));
@@ -35,6 +36,7 @@ void Inventario::setInv(){
             }
         }
     }
+    //Ajustamos el tamano de la tabla
     ui->tableWidget->setColumnWidth(0,200);
     ui->tableWidget->setColumnWidth(1,700);
     ui->tableWidget->setColumnWidth(2,150);
@@ -47,6 +49,7 @@ void Inventario::setInv(){
 }
 
 void Inventario::on_Guardar_clicked(){
+    //Query para revisar los productos
     QSqlQueryModel *model=new QSqlQueryModel();
     model->setQuery("select * from Producto");
     QSqlQuery query;
@@ -54,7 +57,7 @@ void Inventario::on_Guardar_clicked(){
     int saldo;
     QString c;
     QString s;
-    for(int i=0; i < model->rowCount(); i++){
+    for(int i=0; i < model->rowCount(); i++){ //Revisamos fila a fila la tabla, y actualizamos el saldo en la base de datos
         codigo = ui->tableWidget->item(i,0)->text().toInt();
         saldo  = ui->tableWidget->item(i,2)->text().toInt();
         c = QString::number(codigo);
@@ -65,7 +68,7 @@ void Inventario::on_Guardar_clicked(){
         if(query.exec()){
         }
     }
-    QMessageBox msgBox;
+    QMessageBox msgBox; //Mensaje para indicar que los cambios se realizaron
     msgBox.setWindowTitle("Guardado");
     msgBox.setText("Cambios Guardados.");
     msgBox.exec();
@@ -73,11 +76,12 @@ void Inventario::on_Guardar_clicked(){
 
 
 void Inventario::on_limpiar_clicked(){
+    //Query para revisar los productos
     QSqlQueryModel *model=new QSqlQueryModel();
     model->setQuery("select * from Producto");
     QSqlQuery query;
     QSqlRecord row;
-    for(int i=0; i<model->rowCount(); i++){
+    for(int i=0; i<model->rowCount(); i++){ //Fila a fila actualizamos el valor del saldo por el que estaba guardado en la base de datos
         row=model->record(i);
         for(int j=0;j<3;j++){
             ui->tableWidget->setItem(i,j,new QTableWidgetItem(row.value(j).toString()));
