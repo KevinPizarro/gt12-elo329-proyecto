@@ -7,6 +7,11 @@
 #include <QPushButton>
 #include <QDateEdit>
 #include <QDate>
+#include <QDebug>
+#include <QSqlQuery>
+#include <QTableWidgetItem>
+#include <QSqlQueryModel>
+#include <QSqlRecord>
 
 namespace Ui {
 class Caja;
@@ -19,9 +24,11 @@ class Caja : public QDialog
 public:
     explicit Caja(QWidget *parent = nullptr);
     ~Caja();
-    QLineEdit *tarjetas;
+    QLineEdit *debito;
+    QLineEdit *credito;
     QLineEdit *efectivo;
     QLineEdit *total;
+    QLineEdit *nven;
     QPushButton *revisar;
     QDateEdit *fecha;
     void closeEvent (QCloseEvent *event);
