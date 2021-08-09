@@ -95,10 +95,7 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="tefectivo"/>
-    </item>
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
        <string>Total Efectivo</string>
@@ -108,7 +105,45 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Total Crédito</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="debito">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="tefectivo">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="tdia">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="credito">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
      <widget class="QLabel" name="label_4">
       <property name="text">
        <string>Total Día</string>
@@ -118,21 +153,32 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="tdia"/>
-    </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>Total Tarjetas</string>
+       <string>Total Débito</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="ttarjetas"/>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="nven">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="whatsThis">
+       <string>Ventana con el calculo de la caja diaria</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>N. de Ventas</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -150,7 +196,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>E:/Descargas/Lupa.png</normaloff>E:/Descargas/Lupa.png</iconset>
+     <normaloff>../Lupa.png</normaloff>../Lupa.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -172,13 +218,22 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>E:/Descargas/caja.png</pixmap>
+    <pixmap>../caja.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>dateEdit</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>tefectivo</tabstop>
+  <tabstop>tdia</tabstop>
+  <tabstop>debito</tabstop>
+  <tabstop>credito</tabstop>
+  <tabstop>nven</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
