@@ -16,7 +16,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>250</x>
      <y>20</y>
      <width>221</width>
      <height>41</height>
@@ -168,7 +168,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>170</x>
      <y>10</y>
      <width>70</width>
      <height>60</height>
@@ -178,7 +178,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>E:/Descargas/Inventario.png</pixmap>
+    <pixmap>../Inventario.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -187,7 +187,7 @@
   <widget class="QPushButton" name="Guardar">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>480</x>
      <y>30</y>
      <width>81</width>
      <height>41</height>
@@ -211,7 +211,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>E:/Descargas/Guardar.png</normaloff>E:/Descargas/Guardar.png</iconset>
+     <normaloff>../Guardar.png</normaloff>../Guardar.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -223,7 +223,7 @@
   <widget class="QPushButton" name="limpiar">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>590</x>
      <y>30</y>
      <width>81</width>
      <height>41</height>
@@ -239,7 +239,7 @@
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>E:/Descargas/cancel.png</normaloff>E:/Descargas/cancel.png</iconset>
+     <normaloff>../cancel.png</normaloff>../cancel.png</iconset>
    </property>
    <property name="iconSize">
     <size>
