@@ -4,50 +4,34 @@
 
 ### Estructura General
 
-El repositorio cuenta con X carpetas, un readme.md y un archivo documentacion.pdf para una información más detallada sobre la solución y el código escrito. Cada una de las carpetas resuelve una etapa de ésta, en general se tienen los siguientes archivos.
+El repositorio cuenta con 3 carpetas (2 de ellas en el primer nivel), un README.md y un archivo informe.html para una información más detallada sobre la solución y el código escrito. En este respositorio se tiene la siguiente estructura:
 
-- Comuna.cpp
-- Comuna.h
-- Pedestrian.cpp
-- Pedestrian.h
-- Simulator.cpp
-- Simulator.h
-- mainwindow.cpp
-- mainwindow.h
-- mainwindow.ui
-- settings.cpp
-- settings.h
-- settings.ui
-- Extra.cpp
-- Extra.pro
-- config.txt
+    - ResourcesHTML
+      - Imágenes que son usadas en informe.html
+    - Project
+      - Resources
+        - Imágenes para el proyecto
+      - Archivos para clase Caja: caja.cpp, caja.h y caja.ui
+      - Archivos para clase compras: compras.cpp, compras.h y compras.ui
+      - Archivos para clase inventario inventario.cpp, inventario.h y inventario.ui
+      - Archivos para clase mainwindow mainwindow.cpp, mainwindow.h y mainwindow.ui
+      - Archivos para clase producto producto.cpp, producto.h y producto.ui
+      - Archivos para clase ventas ventas.cpp, ventas.h y ventas.ui
+      - main.cpp
+      - Proyecto.pro
+    - informe.html
+    - README.md
 
-El archivo principal de ejecución (main) es Extra.cpp. Además, el archivo Config.txt contiene los parámetros de la simulación de la forma:
+El archivo principal de ejecución (main) es main.cpp. Además las imágenes se encuentran ordenadas según si son usadas para el proyecto en sí o para el archivo HTML.
 
-		<N. de Individuos> <N. de Infectados> <Tiempo que dura la infección [s]> 
-		<Ancho de la comuna [m]> <Alto de la comuna [m]>
-		<Velocidad de los individuos [m/s]> <∆t [s]> <∆θ [rad]>
-		<Distancia de contagio [m]> <Razón de uso de mascarilla> <p0> <p1> <p2> //Probabilidades de Contagio
-		<Cant. de Vacunatorios> <Tamaño de los Vacunatorios> <Tiempo para empezar a Vacunar [s]>
-
-**NOTA:** Para las etapas anteriores el archivo main se encuentra como stageX.cpp, donde X varía según la etapa en la que se desee ejecutar. Notar también que en etapas anteriores se prescinde de algunos de los archivos, según lo solicitado.
 
 ### Ejecución
 
 Antes de ejecutar deberemos realizar un seteo previo, a continuación los pasos. 
 
-- Se debe descargar la carpeta de la etapa (Stage) que se desee simular.
+- Se debe descargar el archivo comprimido del proyecto.
 - Se debe iniciar Qt Creator, cargando el proyecto basado en el archivo con extensión **.pro** descargado en el paso anterior.
-- Asegurarse de tener descargado e instalado el módulo Qt Charts. 
-- Se debe agregar a la carpeta build generada por QtCreator para la etapa el archivo config.txt
-- Se debe agregar en la parte de ejecución del QtCreator el argumento de linea de comando config.txt
 
 Finalmente, para ejecutar cada etapa del programa (con el seteo descrito anteriormente) simplemente dentro del IDE dar al botón Run, simbolizado con una flecha verde.
 
-Dentro del simulador se encuentran las opciones de Control y Settings, la primera nos permite ejecutar los comandos Start y Stop para poder ejecutar y parar la simulación. Por otro lado, la ventana de Settings nos permite colocar los parámetros de la simulación a gusto dentro de los márgenes impuestos. Por ultimo, con la simulación ya en ejecución, se puede acelerar la simulación presionando la tecla &#8594; y para ralentizar la simulación la tecla &#8592;.
-
----
-### Otros
-  Se opta por la etapa extra.
-
-  Se toma como referencia la Tarea 2 para poder trabajar modularmente, teniendo una referencia en otro lenguaje de programación y ajustando solamente lo necesario. El repositorio se encuentra [aquí](https://gitlab.com/gt12-elo329/andrade.miguel-cruces.manuel-pizarro.kevin-troncoso.pablo-tarea2.2021.1).
+Dentro de la GUI se encuentran las opciones de Ventas, Compras e Inventario. La primera nos permite ejecutar los comandos Venta y Caja para poder realizar ventas a los clientes y chequear el estado de la caja durante el día (o días pasados). En segundo lugar, la opción de Compras nos permite ingresar una compra realizada al proveedor de preferencia. Finalmente la sección de Inventario nos permite acceder al inventario mismo y modificarlo si es necesario, en conjunto con la opción de Producto para añadir un nuevo o eliminarlo de la base de datos.
