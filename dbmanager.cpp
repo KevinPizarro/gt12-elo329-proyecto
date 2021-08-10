@@ -1,13 +1,14 @@
 #include "dbmanager.h"
+#define dir "D:/Miguel/Documents/Codigos/Java/ELO329/Proyecto/Proyecto/proyecto/database/test.db"
 
 DbManager::DbManager()
 {
-    if(!QFile::exists("D:/Miguel/Documents/Codigos/Java/ELO329/Proyecto/Proyecto/proyecto/database/test.db"))
+    if(!QFile::exists(dir))
     {
         qDebug() << "No encuentra archivo";
     }
     mydb = QSqlDatabase::addDatabase("QSQLITE");
-       mydb.setDatabaseName("D:/Miguel/Documents/Codigos/Java/ELO329/Proyecto/Proyecto/proyecto/database/test.db");
+       mydb.setDatabaseName(dir);
 
        if (!mydb.open())
        {
