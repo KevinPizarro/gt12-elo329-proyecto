@@ -82,35 +82,27 @@ void Ventas::getItem(QTableWidgetItem *item){
             int cant=ui->tableWidget->item(row,3)->text().toInt();
             int saldo = ui->tableWidget->item(row,2)->text().toInt();
             int cod = item->text().toInt();
-            QSqlQuery query;
-            query.prepare("select * from Producto where Codigo = :codigo");
-            query.bindValue(":codigo",cod);
-            if(!query.exec()){
+            if(cant > saldo){
+                QMessageBox msgBox;
+                msgBox.setWindowTitle("Error");
+                msgBox.setText("No puede vender mas unidades de las existentes.");
+                msgBox.exec();
+                ui->tableWidget->item(row,3)->setText(QString::number(saldo));
             }
-            query.first();
-            if(query.isValid()){
-                if(cant > saldo){
-                    QMessageBox msgBox;
-                    msgBox.setWindowTitle("Error");
-                    msgBox.setText("No puede vender mas unidades de las existentes.");
-                    msgBox.exec();
-                    ui->tableWidget->item(row,3)->setText(QString::number(saldo));
+            cant=ui->tableWidget->item(row,3)->text().toInt();
+            float precio=ui->tableWidget->item(row,4)->text().toFloat();
+            float t=precio*cant;
+            ui->tableWidget->setItem(row,5,new QTableWidgetItem(QString::number(t)));
+            float tci = 0;
+            for(int i = 0; i < 100; i++){
+                QTableWidgetItem *item(ui->tableWidget->item(i,5));
+                if(item){
+                    tci += ui->tableWidget->item(i,5)->text().toFloat();
                 }
-                cant=ui->tableWidget->item(row,3)->text().toInt();
-                float precio=ui->tableWidget->item(row,4)->text().toFloat();
-                float t=precio*cant;
-                ui->tableWidget->setItem(row,5,new QTableWidgetItem(QString::number(t)));
-                float tci = 0;
-                for(int i = 0; i < 100; i++){
-                    QTableWidgetItem *item(ui->tableWidget->item(i,5));
-                    if(item){
-                        tci += ui->tableWidget->item(i,5)->text().toFloat();
-                    }
-                }
-                total->setText(QString::number(tci/1.19));
-                iva->setText(QString::number((tci/1.19)*0.19));
-                totalci->setText(QString::number(tci));
             }
+            total->setText(QString::number(tci/1.19));
+            iva->setText(QString::number((tci/1.19)*0.19));
+            totalci->setText(QString::number(tci));
         }
     }
 
