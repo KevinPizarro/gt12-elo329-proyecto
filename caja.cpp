@@ -40,6 +40,8 @@ void Caja::on_pushButton_clicked(){
     float tc = 0;
     float te = 0;
     int i=0;
+    int cont = 0;
+    int ant = 0;
     bool flag=true;
     QSqlQuery query;
     query.prepare("select * from Venta where [fecha] = :fecha");
@@ -59,9 +61,13 @@ void Caja::on_pushButton_clicked(){
                 else if(query.value(7) == "Crédito"){
                     tc += query.value(1).toFloat();
                 }
+                if(ant != query.value(0).toInt()){
+                    cont += 1;
+                    ant = query.value(0).toInt();
+                }
                 if(!query.next()){
                     flag=false;
-                    nven->setText(QString::number(i+1));
+                    nven->setText(QString::number(cont));
                 }
                 i++;
             }

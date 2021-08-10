@@ -47,7 +47,7 @@ void Ventas::closeEvent (QCloseEvent *event){
 void Ventas::getItem(QTableWidgetItem *item){
     if(item->column()==0){
         int cod = item->text().toInt();
-        int row=item->row();
+        int row = item->row();
         QSqlQuery query;
         query.prepare("select * from Producto where Codigo = :codigo");
         query.bindValue(":codigo",cod);
@@ -70,36 +70,50 @@ void Ventas::getItem(QTableWidgetItem *item){
         }
         else{
             for(int i = 0; i < 6; i++){
-                ui->tableWidget->item(row,i)->setText("");
+                if(ui->tableWidget->item(row,i)){
+                    ui->tableWidget->item(row,i)->setText("");
+                }
             }
         }
     }
     if(item->column()==3){
         int row=item->row();
-        int cant=ui->tableWidget->item(row,3)->text().toInt();
-        int saldo = ui->tableWidget->item(row,2)->text().toInt();
-        if(cant > saldo){
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Error");
-            msgBox.setText("No puede vender mas unidades de las existentes.");
-            msgBox.exec();
-            ui->tableWidget->item(row,3)->setText(QString::number(saldo));
-        }
-        cant=ui->tableWidget->item(row,3)->text().toInt();
-        float precio=ui->tableWidget->item(row,4)->text().toFloat();
-        float t=precio*cant;
-        ui->tableWidget->setItem(row,5,new QTableWidgetItem(QString::number(t)));
-        float tci = 0;
-        for(int i = 0; i < 100; i++){
-            QTableWidgetItem *item(ui->tableWidget->item(i,5));
-            if(item){
-                tci += ui->tableWidget->item(i,5)->text().toFloat();
+        if(ui->tableWidget->item(row,0)){
+            int cant=ui->tableWidget->item(row,3)->text().toInt();
+            int saldo = ui->tableWidget->item(row,2)->text().toInt();
+            int cod = item->text().toInt();
+            QSqlQuery query;
+            query.prepare("select * from Producto where Codigo = :codigo");
+            query.bindValue(":codigo",cod);
+            if(!query.exec()){
+            }
+            query.first();
+            if(query.isValid()){
+                if(cant > saldo){
+                    QMessageBox msgBox;
+                    msgBox.setWindowTitle("Error");
+                    msgBox.setText("No puede vender mas unidades de las existentes.");
+                    msgBox.exec();
+                    ui->tableWidget->item(row,3)->setText(QString::number(saldo));
+                }
+                cant=ui->tableWidget->item(row,3)->text().toInt();
+                float precio=ui->tableWidget->item(row,4)->text().toFloat();
+                float t=precio*cant;
+                ui->tableWidget->setItem(row,5,new QTableWidgetItem(QString::number(t)));
+                float tci = 0;
+                for(int i = 0; i < 100; i++){
+                    QTableWidgetItem *item(ui->tableWidget->item(i,5));
+                    if(item){
+                        tci += ui->tableWidget->item(i,5)->text().toFloat();
+                    }
+                }
+                total->setText(QString::number(tci/1.19));
+                iva->setText(QString::number((tci/1.19)*0.19));
+                totalci->setText(QString::number(tci));
             }
         }
-        total->setText(QString::number(tci/1.19));
-        iva->setText(QString::number((tci/1.19)*0.19));
-        totalci->setText(QString::number(tci));
     }
+
 }
 
 /**
@@ -129,15 +143,20 @@ void Ventas::on_Guardar_pressed()
         query.bindValue(":codigo",codigo);
         query.bindValue(":pago",Pago);
         if(query.exec()){
-            int nSaldo=(ui->tableWidget->item(i,2)->text().toInt()-Cantidad.toInt());
-            query3.prepare("update Producto SET [Saldo] = :saldo where codigo = :codigo");
-            query3.bindValue(":saldo",nSaldo);
-            query3.bindValue(":codigo",codigo);
-            if(query3.exec()){
-            }
+        }
+        int nSaldo=(ui->tableWidget->item(i,2)->text().toInt()-Cantidad.toInt());
+        query3.prepare("update Producto SET [Saldo] = :saldo where codigo = :codigo");
+        query3.bindValue(":saldo",nSaldo);
+        query3.bindValue(":codigo",codigo);
+        if(query3.exec()){
         }
         i++;
-        if(ui->tableWidget->item(i,0)==0){ flag=false;}
+        if(tabla->item(i,0)){
+            flag=true;
+        }
+        else{
+            flag=false;
+        }
     }
     pago->setCurrentIndex(0);
     ui->tableWidget->clearContents();
@@ -156,6 +175,7 @@ void Ventas::setNventas(){
         int maxid=query.value(0).toInt();
         maxid++;
         this->Nventa->setText(QString::number(maxid));
+
     }
     else
     {
@@ -214,6 +234,16 @@ void Ventas::on_Revisar_pressed(){
                 }
                 i++;
             }
+            float tci = 0;
+            for(int i = 0; i < 100; i++){
+                QTableWidgetItem *item(ui->tableWidget->item(i,5));
+                if(item){
+                    tci += ui->tableWidget->item(i,5)->text().toFloat();
+                }
+            }
+            total->setText(QString::number(tci/1.19));
+            iva->setText(QString::number((tci/1.19)*0.19));
+            totalci->setText(QString::number(tci));
         }
         else{
             ui->tableWidget->clearContents();
@@ -225,5 +255,6 @@ void Ventas::on_Revisar_pressed(){
             msgBox.exec();
         }
     }
+
 }
 
