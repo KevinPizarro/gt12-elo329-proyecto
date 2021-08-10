@@ -32,6 +32,7 @@ Antes de ejecutar deberemos realizar un seteo previo, a continuación los pasos.
 
 - Se debe descargar el archivo comprimido del proyecto.
 - Se debe iniciar Qt Creator, cargando el proyecto basado en el archivo con extensión **.pro** descargado en el paso anterior.
+- Se debe cambiar la variable dir (en dbmanager.cpp) a la ruta donde se encuentre el archivo de base de datos.
 
 Finalmente, para ejecutar cada etapa del programa (con el seteo descrito anteriormente) simplemente dentro del IDE dar al botón Run, simbolizado con una flecha verde.
 
