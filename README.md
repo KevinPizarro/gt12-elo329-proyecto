@@ -8,17 +8,18 @@ El repositorio cuenta con 3 carpetas (2 de ellas en el primer nivel), un README.
 
     - ResourcesHTML
       - Imágenes que son usadas en informe.html
-    - Project
-      - Resources
-        - Imágenes para el proyecto
-      - Archivos para clase Caja: caja.cpp, caja.h y caja.ui
-      - Archivos para clase compras: compras.cpp, compras.h y compras.ui
-      - Archivos para clase inventario inventario.cpp, inventario.h y inventario.ui
-      - Archivos para clase mainwindow mainwindow.cpp, mainwindow.h y mainwindow.ui
-      - Archivos para clase producto producto.cpp, producto.h y producto.ui
-      - Archivos para clase ventas ventas.cpp, ventas.h y ventas.ui
-      - main.cpp
-      - Proyecto.pro
+    - database
+      - test.db
+    - Imágenes para el proyecto
+    - Archivos para clase Caja: caja.cpp, caja.h y caja.ui
+    - Archivos para clase compras: compras.cpp, compras.h y compras.ui
+    - Archivos para clase inventario inventario.cpp, inventario.h y inventario.ui
+    - Archivos para clase mainwindow mainwindow.cpp, mainwindow.h y mainwindow.ui
+    - Archivos para clase producto producto.cpp, producto.h y producto.ui
+    - Archivos para clase ventas ventas.cpp, ventas.h y ventas.ui
+    - main.cpp
+    - Proyecto.pro
+    - proyecto.tar.xz
     - informe.html
     - README.md
 

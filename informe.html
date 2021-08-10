@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+.img-container {
+        text-align: center;
+        display: block;
+      }
+figure figcaption {
+    text-align: center;
+}
+</style>
+
+
+
+<img src="ResourcesHTML/logousmELO.png" alt="LogoUSM-ELO" width="400" height="150" align="right"> 
+<h1 style="text-align:center">Proyecto SiCoVen: Administración, compra y venta de productos de negocios.</h1>
+
+<h3>I. Descripción del problema</h3>
+<p> Dentro de un negocio pequeño o minimarket puede llegar a ser caótico, si es que no se lleva un registro confiable y ordenado de los productos en stock, los comprados y vendidos. Se puede intuir que existen múltiples alternativas para llevar el registro tanto de la compra-venta como del inventario mismo. Sin dudas, la más antigua y más usada de todas es llevar un registro en lapiz y papel, la cual trae consigo múltiples problemáticas, pero podría ser aún más catastrófico si no se hicieran dichos registros.</p>
+
+<h3>II. Análisis del problema</h3>
+<p> Debido a lo anterior podemos identificar varios problemas fundamentales, pero antes es necesario poder identificar claramente los agentes y sistemas. En primer lugar, se puede reconocer las siguientes operaciones principales para un local: </p>
+<ul>
+	<li><b>Compra</b>: Es la acción de comprar/reponer productos con los proveedores. Se debe llevar en registro los productos comprados, número de factura, entre otros.</li>
+	<li><b>Venta</b>: Es la acción de vender productos en stock a los clientes. Se debe registrar los productos vendidos, total de venta, número de venta, entre otros.</li>
+	<li><b>Caja</b>: Permite revisar el ingreso durante el día y revisar el de los días pasados.</li>
+	<li><b>Inventario</b>: Permite revisar los productos en stock y actualizar su estado según sea necesario.</li>
+	<li><b>Producto</b>: Permite agregar un producto no existente al inventario, para una posterior compra o venta.</li>
+</ul>
+<p> Por otro lado tenemos los agentes:</p> 
+<ul>
+	<li><b>Dueño(a) del local</b>: Es quien efectua las compras con los proveedores y chequea el inventario cada cierto tiempo.</li>
+	<li><b>Empleado(a) de turno</b>: Es quien realiza ventas, interactua con los clientes del local y realiza la caja.</li>
+</ul>
+<p> Finalmente se tiene el sistema, el cual comprende a todos los agentes "externos", que interactúan con los agentes principales. Es decir, se puede identificar:</p> 
+<ul>
+	<li><b>El programa</b>: Es aquel ente que le provee diversas operaciones predeterminadas, donde cada una sólo contiene los pasos fundamentales y la información centralizada.</li>
+</ul>
+<p> Luego se puede entender y condensar de mejor forma las problemáticas asociadas a el contexto. De esta forma se puede reducir a que existe <b>poca organización de los productos</b>, en conjunto a <b>falta de respaldo de información</b>; ya que al no llevar un registro de los productos vendidos, comprados y en stock, es fácil que hayan pérdidas significativas sin siquiera percatarse o un mal seguimiento del crecimiento(o estancamiento) en el funcionamiento del local. Además, existe un <b>exceso de trabajo no fundamental</b> (pasos intermedios) que sin duda pueden ser quitados mediante el apoyo de sistemas informáticos, como lo es el caso para calcular el precio total de una venta revisando el precio de cada producto. Cerrando con las problemáticas, se tienen la <b>dificultad de accesibilidad</b> y <b>dificultad de revisión</b>, desde el punto de vista que la legibilidad de los registros en papel y lápiz puede ser un problema o que incluso que estos mismos registros se puedan dañar o extraviar con mayor facilidad.</p> 
+<p> Todas las problemáticas vistas, o al menos la mayoría, pueden ser abordadas mediante una interfaz gráfica de usuario (GUI). De esta forma se permite llevar mejores registros, un trabajo más eficiente y eficaz.</p>
+
+
+<h3>III. Requerimientos de la solución</h3>
+<p>Dentro de las interacciones con el sistema que se ha definido, se pueden dar diversas situaciones donde un actor desea realizar una acción a través de un sistema. De esta forma podemos definir/revisar el flujo de algunas de estas situacíones, es decir, los casos de uso.</p>
+
+<h4>Caso de Uso N°1: Compra al proveedor.</h4>
+<table style="width:100%">
+  <tr>
+    <th>Actor</th>
+    <th>Sistema</th> 
+  </tr>
+  <tr>
+    <td>1. El <b>empleado</b> del local realizó una compra a su proveedor favorito y desea llevar registro de ello. Abre el programa SiCoVen.</td>
+    <td>2. El <b>programa</b> muestra una GUI con diferentes opciones disponibles, por ejemplo Compras, Ventas e Inventario.</td>
+  </tr>
+  <tr>
+    <td>3. El <b>usuario</b> selecciona la operación Compras.</td>
+    <td>4. El <b>sistema</b>, a través de la GUI, pide los datos de la compra realizada.</td>
+  </tr>
+  <tr>
+    <td>5. El <b>usuario</b> ingresa los datos de los productos comprados, su código asociado y la cantidad comprada.</td>
+    <td>6. La <b>GUI</b> guarda la compra realizada en el inventario y luego recarga para poder ingresar una nueva compra.</td>
+  </tr>
+  <tr>
+    <td>7. El <b>usuario</b> da por terminada la operación y desea cerrar la sub-ventana de la operación Compras.</td>
+    <td>8. El <b>programa</b> cierra la sub-ventana de compras dejando la opción de realizar otras operaciones durante el día.</td>
+  </tr>
+</table>
+<h4>Caso de Uso N°2:  Revisión del total de ventas del día.</h4>
+<table style="width:100%">
+  <tr>
+    <th>Actor</th>
+    <th>Sistema</th> 
+  </tr>
+  <tr>
+    <td>1. El <b>empleado</b> del local quiere comprobar el total del día. Abre el programa SiCoVen.</td>
+    <td>2. El <b>programa</b> muestra una GUI con diferentes opciones disponibles, por ejemplo Compras, Ventas e Inventario.</td>
+  </tr>
+  <tr>
+    <td>3. El <b>usuario</b> selecciona la operación menú Ventas y la operación Caja.</td>
+    <td>4. El <b>sistema</b>, a través de la GUI, muestra la fecha actual con la opción de cambiarla realizada.</td>
+  </tr>
+  <tr>
+    <td>5. El <b>usuario</b> como no desea cambiar la fecha solo apreta el botón revisar.</td>
+    <td>6. La <b>GUI</b> muestra el total en efectivo, total en tarjeta y total del día.</td>
+  </tr>
+  <tr>
+    <td>7. El <b>usuario</b> da por terminada la operación y desea cerrar la sub-ventana de la operación Caja.</td>
+    <td>8. El <b>programa</b> cierra la sub-ventana de compras dejando la opción de realizar otras operaciones durante el día.</td>
+  </tr>
+</table>
+<h4>Caso de Uso N°3: Venta de productos.</h4>
+<table style="width:100%">
+  <tr>
+    <th>Actor</th>
+    <th>Sistema</th> 
+  </tr>
+  <tr>
+    <td>1. El <b>empleado</b> del local ayuda a un cliente a realizar y desea llevar registro de una venta. Abre el programa SiCoVen.</td>
+    <td>2. El <b>programa</b> muestra una GUI con diferentes opciones disponibles, por ejemplo Compras, Ventas e Inventario.</td>
+  </tr>
+  <tr>
+    <td>3. El <b>usuario</b> selecciona la operación Ventas.</td>
+    <td>4. El <b>sistema</b>, a través de la GUI, solicita los códigos y cantidad de los productos solicitados.</td>
+  </tr>
+  <tr>
+    <td>5. El <b>usuario</b>  ingresa los datos de los productos a vender, su código asociado y la cantidad.</td>
+    <td>6. La <b>GUI</b> guarda la venta realizada en el inventario, calcula el total de la compra con iva y pide el método de pago.</td>
+  </tr>
+  <tr>
+    <td>7. El <b>usuario</b> ingresa el método de pago</td>
+    <td>8. El <b>programa</b> guarda la venta realizada y actualiza el inventario, luego recarga para poder ingresar una nueva venta.</td>
+  </tr>
+	<tr>
+		<td>9. El <b>usuario</b> da por terminada la operación y desea cerrar la sub-ventana de la operación Ventas.</td>
+		<td>6. La <b>GUI</b> cierra la sub-ventana de compras dejando la opción de realizar otras operaciones durante el día.</td>
+	</tr>
+</table>
+<p>Posteriormente, en la sección <i>V. Pruebas del caso de uso</i>, se mostrará más en detalle el resultado del Caso de uso 1: Compra al proveedor.</p>
+
+<h3>IV. Diseño de la solución</h3>
+<p>El equivalente de un plano en la arquitectura para nuestro proyecto es sin dudas el diagrama de Lenguaje Unificado de Modelado (UML por sus siglas en inglés). De esta forma se puede conocer a grandes rasgos la "arquitectura" de la solución, como objetos interactúan dentro de ella y a través de un análisis al diagrama se puede intuir si una solución puede funcionar o si está bien construida.</p>
+
+<span class="img-container">
+<img src="ResourcesHTML/DiagramaUML.png" alt="Diagrama UML" width="900" height="600">
+<figcaption>
+	Imagen 1. Diagrama UML de Proyecto SiCoVen.
+</figcaption>
+</span>
+
+<p> Por otro lado, para acercar al lenguaje de usuario puede ser más útil utilizar un diagrama de secuencia como el presentado en la imagen 2. Muestra el flujo, en nuestro caso en particular, del Caso N°1 (descrito en la sección III) de una manera más gráfica y sencilla.</p>
+
+<span class="img-container">
+<img src="ResourcesHTML/FlujoUsuario.png" alt="FlujoUsuario" width="400" height="300"> 
+<figcaption>
+	Imagen 2. Diagrama de secuencia para el Caso de Uso N°1.
+</figcaption>
+</span>
+
+<h3>V. Resultados de las pruebas</h3>
+<p>Se realizan los casos de uso indicados en la sección III sin mayores complicaciones. A lo largo del proyecto se pudieron determinar múltiples dificultades, de entre las que destacan:
+<ol>
+  <li>Problemas con la base de datos (SQLite).</li>
+    <ul>
+      <li>Conexión con SQLite.</li>
+      <li>Lectura y ejecución de las consultas.</li>
+      <li>Conexión lógica SQLite con la GUI.</li>
+    </ul>
+  <li>Cuadrar el layout de la GUI, particularmente con QTable Widget.</li>
+  <li>Manejo de QTableWidget.</li>
+</ol>
+</p>
+<p>
+Para resolver el punto 1 y 3 se realizan pruebas unitarias y sencillas, leyendo y comprendiendo de fondo el manejo de las librerías asociadas a cada problema. Por ejemplo, para 1.1 (1.2 y 1.3 es válida también), se utiliza una base de datos de prueba y un proyecto aparte para realizar las pruebas e ir depurando sin preocuparse de lo demás, para luego ir escalando hasta llegar a la solución deseada. Finalmente para el layout se ajusta a mano, a través del código, los tamaños de las columnas de las tablas para que siga una distribución deseada y lógica.
+</p>
+
+<hr>
+<p> A continuación se encuentra el proyecto, donde se puede realizar la prueba del caso de uso expuesto en la sección III y IV. <a href="https://gitlab.com/gt12-elo329/proyecto.git">Link al repositorio.</a>  y <a href="https://gitlab.com/gt12-elo329/proyecto.git">Link a comprimido.</a>
+</body>
+</html> 
